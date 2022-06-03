@@ -26,5 +26,7 @@ No resources.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_context"></a> [context](#output\_context) | Project context. |
-| <a name="output_path"></a> [path](#output\_path) | Project context represented as a path. |
+| <a name="output_context"></a> [context](#output\_context) | Project context object(`{namespace:,stage:,name:}`). |
+| <a name="output_id_as"></a> [id\_as](#output\_id\_as) | Context ID represented in various formats. |
+| <a name="output_short_id_as"></a> [short\_id\_as](#output\_short\_id\_as) | Context ID represented in various formats but without a namespace. |
+| <a name="output_tags"></a> [tags](#output\_tags) | Tags applied to resources. |

@@ -1,5 +1,5 @@
 output "context" {
-  description = "Project context object."
+  description = "Project context object(`{namespace:,stage:,name:}`)."
 
   value = {
     namespace = var.namespace
@@ -8,25 +8,31 @@ output "context" {
   }
 }
 
-output "namespaced_path" {
-  description = "Full project context represented as a path."
+output "id_as" {
+  description = "Context ID represented in various formats."
 
-  value = "/${var.namespace}/${var.stage}/${var.name}"
+  value = {
+    name   = "${var.namespace}-${var.stage}-${var.name}"  # orders-prod-api
+    path   = "/${var.namespace}/${var.stage}/${var.name}" # /orders/prod/api
+    prefix = "${var.namespace}-${var.stage}-${var.name}-" # orders-prod-api-
+  }
 }
 
-output "path" {
-  description = "Project context represented as a path."
+output "short_id_as" {
+  description = "Context ID represented in various formats but without a namespace."
 
-  value = "/${var.stage}/${var.name}"
+  value = {
+    name   = "${var.stage}-${var.name}"  # prod-api
+    path   = "/${var.stage}/${var.name}" # /prod/api
+    prefix = "${var.stage}-${var.name}-" # prod-api-
+  }
 }
 
-output "namespaced_prefix" {
-  description = "Full name prefix for resources."
-
-  value = "${var.namespace}-${var.stage}-${var.name}-"
-}
-
-output "prefix" {
-  description = "Name prefix for resources."
-  value       = "${var.stage}-${var.name}-"
+output "tags" {
+  description = "Tags applied to resources."
+  value = {
+    "context.namespace" = var.namespace
+    "context.stage"     = var.stage
+    "context.name"      = var.name
+  }
 }

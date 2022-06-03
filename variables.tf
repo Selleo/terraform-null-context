@@ -6,7 +6,7 @@ variable "namespace" {
 
   validation {
     condition     = can(regex("^[a-z-_0-9]+$", var.namespace))
-    error_message = "Value can only contains letters, numbers, dash or underscore"
+    error_message = "Value can only contains letters, numbers, dash or underscore."
   }
 }
 
@@ -16,7 +16,7 @@ variable "stage" {
 
   validation {
     condition     = can(regex("^[a-z-_0-9]+$", var.stage))
-    error_message = "Value can only contains letters, numbers, dash or underscore"
+    error_message = "Value can only contains letters, numbers, dash or underscore."
   }
 }
 
@@ -26,7 +26,7 @@ variable "name" {
 
   validation {
     condition     = can(regex("^[a-z-_0-9]+$", var.name))
-    error_message = "Value can only contains letters, numbers, dash or underscore"
+    error_message = "Value can only contains letters, numbers, dash or underscore."
   }
 }
 

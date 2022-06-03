@@ -8,18 +8,26 @@ module "info" {
 
 resource "null_resource" "output" {
   provisioner "local-exec" {
-    command = "echo '${module.info.path}'"
+    command = "echo '${module.info.id_as.path}'"
   }
 
   provisioner "local-exec" {
-    command = "echo '${module.info.namespaced_path}'"
+    command = "echo '${module.info.id_as.prefix}'"
   }
 
   provisioner "local-exec" {
-    command = "echo '${module.info.prefix}'"
+    command = "echo '${module.info.id_as.name}'"
   }
 
   provisioner "local-exec" {
-    command = "echo '${module.info.namespaced_prefix}'"
+    command = "echo '${module.info.short_id_as.path}'"
+  }
+
+  provisioner "local-exec" {
+    command = "echo '${module.info.short_id_as.prefix}'"
+  }
+
+  provisioner "local-exec" {
+    command = "echo '${module.info.short_id_as.name}'"
   }
 }
